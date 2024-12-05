@@ -15,7 +15,6 @@ namespace BromoAirlines.Forms {
             InitializeComponent();
         }
 
-        String angka = "1234567890";
         bool validasi() {
             if (String.IsNullOrEmpty(tbUsername.Text) || String.IsNullOrEmpty(tbPassword.Text) || String.IsNullOrEmpty(tbNomorTelepon.Text) || String.IsNullOrEmpty(dateTimePicker.Text) || String.IsNullOrEmpty(tbNama.Text)) {
                 MessageBox.Show("Semua field harus diisi");
@@ -28,6 +27,9 @@ namespace BromoAirlines.Forms {
             if (tbPassword.Text.Length < 8) {
                 MessageBox.Show("Password minimal 8 karakter");
                 return false;
+            }
+            if (true) {
+
             }
             
             foreach (char a in tbNomorTelepon.Text) {

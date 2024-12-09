@@ -17,10 +17,10 @@ namespace BromoAirlines
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Akun()
         {
-            this.NomorTelefons = new HashSet<NomorTelefon>();
+            this.TransaksiHeaders = new HashSet<TransaksiHeader>();
         }
     
-        public int id { get; set; }
+        public int ID { get; set; }
         public string username { get; set; }
         public string password { get; set; }
         public string nama { get; set; }
@@ -29,6 +29,6 @@ namespace BromoAirlines
         public string role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<NomorTelefon> NomorTelefons { get; set; }
+        public virtual ICollection<TransaksiHeader> TransaksiHeaders { get; set; }
     }
 }

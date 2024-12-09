@@ -78,5 +78,11 @@ namespace BromoAirlines.Forms {
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e) {
 
         }
+
+        private void linkLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            Form1 login = new Form1();
+            this.Hide();
+            login.Show();
+        }
     }
 }

@@ -175,6 +175,7 @@
             this.linkLogin.TabIndex = 17;
             this.linkLogin.TabStop = true;
             this.linkLogin.Text = "Login";
+            this.linkLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLogin_LinkClicked);
             // 
             // dateTimePicker
             // 
@@ -206,6 +207,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "registerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bromo Airlines -  Daftar Akun";
             this.Load += new System.EventHandler(this.registerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

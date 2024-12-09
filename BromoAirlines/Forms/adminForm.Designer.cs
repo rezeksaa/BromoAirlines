@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using BromoAirlines.Fragments;
+using System.Windows.Forms;
 
 namespace BromoAirlines.Forms {
     partial class adminForm {
@@ -44,7 +45,12 @@ namespace BromoAirlines.Forms {
             this.pbMaskapai = new System.Windows.Forms.PictureBox();
             this.lbBandara = new System.Windows.Forms.Label();
             this.pbBandara = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.masterBandaraFrag = new BromoAirlines.Fragments.MasterBandaraFrag();
+            this.masterMaskapaiFrag = new BromoAirlines.Fragments.MasterMaskapaiFrag();
+            this.masterJadwalPenerbanganFrag = new BromoAirlines.Fragments.MasterJadwalPenerbanganFrag();
+            this.masterKodePromoFrag = new BromoAirlines.Fragments.MasterKodePromoFrag();
+            this.ubahStatusPenerbanganFrag = new BromoAirlines.Fragments.UbahStatusPenerbanganFrag();
             this.panel1.SuspendLayout();
             this.panelDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDashboard)).BeginInit();
@@ -56,6 +62,7 @@ namespace BromoAirlines.Forms {
             ((System.ComponentModel.ISupportInitialize)(this.pbJadwal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaskapai)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBandara)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +74,7 @@ namespace BromoAirlines.Forms {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1279, 97);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panelDashboard
             // 
@@ -163,7 +171,7 @@ namespace BromoAirlines.Forms {
             this.lbStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbStatus.ForeColor = System.Drawing.Color.Gray;
-            this.lbStatus.Location = new System.Drawing.Point(80, 303);
+            this.lbStatus.Location = new System.Drawing.Point(80, 300);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(222, 22);
             this.lbStatus.TabIndex = 11;
@@ -174,7 +182,7 @@ namespace BromoAirlines.Forms {
             // 
             this.pbStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbStatus.Image = ((System.Drawing.Image)(resources.GetObject("pbStatus.Image")));
-            this.pbStatus.Location = new System.Drawing.Point(14, 288);
+            this.pbStatus.Location = new System.Drawing.Point(14, 285);
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.Size = new System.Drawing.Size(60, 50);
             this.pbStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -188,7 +196,7 @@ namespace BromoAirlines.Forms {
             this.lbPromo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbPromo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPromo.ForeColor = System.Drawing.Color.Gray;
-            this.lbPromo.Location = new System.Drawing.Point(80, 237);
+            this.lbPromo.Location = new System.Drawing.Point(80, 234);
             this.lbPromo.Name = "lbPromo";
             this.lbPromo.Size = new System.Drawing.Size(168, 22);
             this.lbPromo.TabIndex = 9;
@@ -199,7 +207,7 @@ namespace BromoAirlines.Forms {
             // 
             this.pbPromo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbPromo.Image = ((System.Drawing.Image)(resources.GetObject("pbPromo.Image")));
-            this.pbPromo.Location = new System.Drawing.Point(14, 222);
+            this.pbPromo.Location = new System.Drawing.Point(14, 219);
             this.pbPromo.Name = "pbPromo";
             this.pbPromo.Size = new System.Drawing.Size(60, 50);
             this.pbPromo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -213,7 +221,7 @@ namespace BromoAirlines.Forms {
             this.lbJadwal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbJadwal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbJadwal.ForeColor = System.Drawing.Color.Gray;
-            this.lbJadwal.Location = new System.Drawing.Point(80, 169);
+            this.lbJadwal.Location = new System.Drawing.Point(80, 166);
             this.lbJadwal.Name = "lbJadwal";
             this.lbJadwal.Size = new System.Drawing.Size(238, 22);
             this.lbJadwal.TabIndex = 7;
@@ -224,7 +232,7 @@ namespace BromoAirlines.Forms {
             // 
             this.pbJadwal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbJadwal.Image = ((System.Drawing.Image)(resources.GetObject("pbJadwal.Image")));
-            this.pbJadwal.Location = new System.Drawing.Point(14, 154);
+            this.pbJadwal.Location = new System.Drawing.Point(14, 151);
             this.pbJadwal.Name = "pbJadwal";
             this.pbJadwal.Size = new System.Drawing.Size(60, 50);
             this.pbJadwal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,7 +246,7 @@ namespace BromoAirlines.Forms {
             this.lbMaskapai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbMaskapai.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbMaskapai.ForeColor = System.Drawing.Color.Gray;
-            this.lbMaskapai.Location = new System.Drawing.Point(80, 101);
+            this.lbMaskapai.Location = new System.Drawing.Point(80, 98);
             this.lbMaskapai.Name = "lbMaskapai";
             this.lbMaskapai.Size = new System.Drawing.Size(145, 22);
             this.lbMaskapai.TabIndex = 5;
@@ -249,7 +257,7 @@ namespace BromoAirlines.Forms {
             // 
             this.pbMaskapai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbMaskapai.Image = ((System.Drawing.Image)(resources.GetObject("pbMaskapai.Image")));
-            this.pbMaskapai.Location = new System.Drawing.Point(14, 86);
+            this.pbMaskapai.Location = new System.Drawing.Point(14, 83);
             this.pbMaskapai.Name = "pbMaskapai";
             this.pbMaskapai.Size = new System.Drawing.Size(60, 50);
             this.pbMaskapai.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -282,15 +290,55 @@ namespace BromoAirlines.Forms {
             this.pbBandara.TabStop = false;
             this.pbBandara.Click += new System.EventHandler(this.pbBandara_Click);
             // 
-            // panel2
+            // flowLayoutPanel1
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(335, 97);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(944, 675);
-            this.panel2.TabIndex = 2;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.masterBandaraFrag);
+            this.flowLayoutPanel1.Controls.Add(this.masterMaskapaiFrag);
+            this.flowLayoutPanel1.Controls.Add(this.masterJadwalPenerbanganFrag);
+            this.flowLayoutPanel1.Controls.Add(this.masterKodePromoFrag);
+            this.flowLayoutPanel1.Controls.Add(this.ubahStatusPenerbanganFrag);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(335, 97);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(944, 675);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // masterBandaraFrag
+            // 
+            this.masterBandaraFrag.Location = new System.Drawing.Point(3, 3);
+            this.masterBandaraFrag.Name = "masterBandaraFrag";
+            this.masterBandaraFrag.Size = new System.Drawing.Size(944, 675);
+            this.masterBandaraFrag.TabIndex = 0;
+            // 
+            // masterMaskapaiFrag
+            // 
+            this.masterMaskapaiFrag.Location = new System.Drawing.Point(953, 3);
+            this.masterMaskapaiFrag.Name = "masterMaskapaiFrag";
+            this.masterMaskapaiFrag.Size = new System.Drawing.Size(944, 675);
+            this.masterMaskapaiFrag.TabIndex = 1;
+            // 
+            // masterJadwalPenerbanganFrag
+            // 
+            this.masterJadwalPenerbanganFrag.Location = new System.Drawing.Point(1903, 3);
+            this.masterJadwalPenerbanganFrag.Name = "masterJadwalPenerbanganFrag";
+            this.masterJadwalPenerbanganFrag.Size = new System.Drawing.Size(944, 675);
+            this.masterJadwalPenerbanganFrag.TabIndex = 2;
+            // 
+            // masterKodePromoFrag
+            // 
+            this.masterKodePromoFrag.Location = new System.Drawing.Point(2853, 3);
+            this.masterKodePromoFrag.Name = "masterKodePromoFrag";
+            this.masterKodePromoFrag.Size = new System.Drawing.Size(944, 675);
+            this.masterKodePromoFrag.TabIndex = 3;
+            // 
+            // ubahStatusPenerbanganFrag
+            // 
+            this.ubahStatusPenerbanganFrag.Location = new System.Drawing.Point(3803, 3);
+            this.ubahStatusPenerbanganFrag.Name = "ubahStatusPenerbanganFrag";
+            this.ubahStatusPenerbanganFrag.Size = new System.Drawing.Size(944, 675);
+            this.ubahStatusPenerbanganFrag.TabIndex = 4;
             // 
             // adminForm
             // 
@@ -298,13 +346,12 @@ namespace BromoAirlines.Forms {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1279, 772);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel1);
             this.Name = "adminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "adminForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.adminForm_Load);
             this.panel1.ResumeLayout(false);
             this.panelDashboard.ResumeLayout(false);
@@ -320,15 +367,20 @@ namespace BromoAirlines.Forms {
             ((System.ComponentModel.ISupportInitialize)(this.pbJadwal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbMaskapai)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBandara)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private Fragments.MasterBandaraFrag masterBandaraFrag;
+        private Fragments.MasterMaskapaiFrag masterMaskapaiFrag;
+        private Fragments.MasterJadwalPenerbanganFrag masterJadwalPenerbanganFrag;
+        private Fragments.MasterKodePromoFrag masterKodePromoFrag;
+        private Fragments.UbahStatusPenerbanganFrag ubahStatusPenerbanganFrag;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel sidebar;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelDashboard;
         private System.Windows.Forms.Label lbDashboard;
         private System.Windows.Forms.PictureBox pbDashboard;
@@ -345,5 +397,6 @@ namespace BromoAirlines.Forms {
         private Label lbLogout;
         private PictureBox pbLogout;
         private Panel panel3;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

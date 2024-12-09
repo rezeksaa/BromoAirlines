@@ -1,4 +1,5 @@
-﻿using BromoAirlines.Properties;
+﻿using BromoAirlines.Fragments;
+using BromoAirlines.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace BromoAirlines.Forms {
         }
         private void adminForm_Load(object sender, EventArgs e) {
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            setNormal(pbBandara, lbBandara);
+            showFrag(masterBandaraFrag);
         }
 
         void setNormal(PictureBox pb, Label lb) {
@@ -34,6 +37,7 @@ namespace BromoAirlines.Forms {
                     photo[i].Image = imagUnselected[i];
                 }
             }
+
             for (int i = 0;i < label.Length; i++) {
                 if (lb == label[i]) {
                     label[i].ForeColor = System.Drawing.Color.Black;
@@ -43,45 +47,71 @@ namespace BromoAirlines.Forms {
             }
         }
 
+        #region fragment
+
+        void hideFrag() {
+            foreach (UserControl frag in flowLayoutPanel1.Controls) {
+                frag.Visible = false;
+            }
+        }
+
+        void showFrag(UserControl frag) {
+            hideFrag();
+            frag.Visible = true;
+        }
+
+        #endregion
+
         #region onClick
         private void lbBandara_Click(object sender, EventArgs e) {
             setNormal(pbBandara, lbBandara);
+            showFrag(masterBandaraFrag);
         }
 
         private void pbBandara_Click(object sender, EventArgs e) {
             setNormal(pbBandara, lbBandara);
+            showFrag(masterBandaraFrag);
         }
 
         private void pbMaskapai_Click(object sender, EventArgs e) {
             setNormal(pbMaskapai, lbMaskapai);
+            showFrag(masterMaskapaiFrag);
         }
 
         private void lbMaskapai_Click(object sender, EventArgs e) {
             setNormal(pbMaskapai, lbMaskapai);
+            showFrag(masterMaskapaiFrag);
         }
 
         private void pbJadwal_Click(object sender, EventArgs e) {
             setNormal(pbJadwal, lbJadwal);
+            showFrag(masterJadwalPenerbanganFrag);
         }
 
         private void lbJadwal_Click(object sender, EventArgs e) {
             setNormal(pbJadwal, lbJadwal);
+            showFrag(masterJadwalPenerbanganFrag);
+
         }
 
         private void pbPromo_Click(object sender, EventArgs e) {
             setNormal(pbPromo, lbPromo);
+            showFrag(masterKodePromoFrag);
         }
 
         private void lbPromo_Click(object sender, EventArgs e) {
             setNormal(pbPromo, lbPromo);
+            showFrag(masterKodePromoFrag);
         }
 
         private void pbStatus_Click(object sender, EventArgs e) {
             setNormal(pbStatus, lbStatus);
+            showFrag(ubahStatusPenerbanganFrag);
         }
 
         private void lbStatus_Click(object sender, EventArgs e) {
             setNormal(pbStatus, lbStatus);
+            showFrag(ubahStatusPenerbanganFrag);
         }
         #endregion onClick
 
@@ -114,5 +144,9 @@ namespace BromoAirlines.Forms {
         }
 
         #endregion Dashboard
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

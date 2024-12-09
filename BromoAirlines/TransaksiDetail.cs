@@ -12,12 +12,13 @@ namespace BromoAirlines
     using System;
     using System.Collections.Generic;
     
-    public partial class NomorTelefon
+    public partial class TransaksiDetail
     {
-        public int id { get; set; }
-        public int nomor { get; set; }
-        public int idAkun { get; set; }
+        public int ID { get; set; }
+        public int TransaksiHeaderID { get; set; }
+        public string TitlePenumpang { get; set; }
+        public string NamaLengkapPenumpang { get; set; }
     
-        public virtual Akun Akun { get; set; }
+        public virtual TransaksiHeader TransaksiHeader { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BromoAirlines {
     public class Repo {
-        public static BromoAirlinesEntities db = new BromoAirlinesEntities();
+        public static BromoAirlinesEntities1 db = new BromoAirlinesEntities1();
         public static Akun logged = null;
 
         public static void login(string username, string password) {

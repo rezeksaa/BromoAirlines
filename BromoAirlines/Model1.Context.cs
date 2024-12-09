@@ -13,10 +13,10 @@ namespace BromoAirlines
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BromoAirlinesEntities : DbContext
+    public partial class BromoAirlinesEntities1 : DbContext
     {
-        public BromoAirlinesEntities()
-            : base("name=BromoAirlinesEntities")
+        public BromoAirlinesEntities1()
+            : base("name=BromoAirlinesEntities1")
         {
         }
     
@@ -26,7 +26,15 @@ namespace BromoAirlines
         }
     
         public virtual DbSet<Akun> Akuns { get; set; }
-        public virtual DbSet<NomorTelefon> NomorTelefons { get; set; }
+        public virtual DbSet<Bandara> Bandaras { get; set; }
+        public virtual DbSet<JadwalPenerbangan> JadwalPenerbangans { get; set; }
+        public virtual DbSet<KodePromo> KodePromoes { get; set; }
+        public virtual DbSet<Maskapai> Maskapais { get; set; }
+        public virtual DbSet<Negara> Negaras { get; set; }
+        public virtual DbSet<PerubahanStatusJadwalPenerbangan> PerubahanStatusJadwalPenerbangans { get; set; }
+        public virtual DbSet<StatusPenerbangan> StatusPenerbangans { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<TransaksiDetail> TransaksiDetails { get; set; }
+        public virtual DbSet<TransaksiHeader> TransaksiHeaders { get; set; }
     }
 }
